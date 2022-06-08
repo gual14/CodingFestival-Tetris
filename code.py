@@ -15,10 +15,6 @@ mat = [
   [0,0,0,0,0],
   [0,0,0,0,0],
   [0,0,0,0,0],
-  [0,0,0,0,0],
-  [0,0,0,0,0],
-  [0,0,0,0,0],
-  [0,0,0,0,0]
 ]
 def placematrix(i,j):
   #insx = round(x//100)
@@ -65,7 +61,10 @@ while running:
         if z == 500:
             if isStop(i,j):
                 contgame(i,j)
-                running = False
+                #running = False
+                i = 0
+                j = 2
+                pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j * 100, i * 100, 50, 50))
             #y = y + 100
             i = i + 1
             z = 0
