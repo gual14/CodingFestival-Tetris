@@ -50,11 +50,11 @@ while running:
             if event.key == K_ESCAPE:
                 running = False
             if event.key == K_LEFT:
-                if j >= 0:
+                if j > 0:
                     #x = x - 100
                     j = j - 1
             if event.key == K_RIGHT:
-                if j <= 4:
+                if j < 4:
                     #x = x + 100
                     j = j + 1
     screen.fill((0, 0, 0))
