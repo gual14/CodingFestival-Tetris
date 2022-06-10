@@ -21,6 +21,9 @@ def placematrix(i,j):
   #insy = round(y//100)
   mat[i][j] = 1
 
+def cube_draw(i, j):
+    pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j*100+5, i*100+5, 90, 90))
+
 def print_matrix(matrix):
   for i in matrix:
     print(*i)
@@ -55,19 +58,20 @@ while running:
                     #x = x + 100
                     j = j + 1
     screen.fill((0, 0, 0))
+
     for temp_i in range(len(mat)):
         for temp_j in range(len(mat[temp_i])):
             if mat[temp_i][temp_j] == 1:
-                pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(temp_j * 100, temp_i * 100, 50, 50))
-    pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j*100, i*100, 50, 50))
+                cube_draw(temp_i, temp_j)
+                
+    cube_draw(i, j)
     if i < 9:
-        if z == 500:
+        if z == 750:
             if isStop(i,j):
                 contgame(i,j)
                 #running = False
                 i = 0
                 j = 2
-                pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j * 100, i * 100, 50, 50))
             #y = y + 100
             i = i + 1
             z = 0
