@@ -55,7 +55,10 @@ while running:
                     #x = x + 100
                     j = j + 1
     screen.fill((0, 0, 0))
-
+    for temp_i in range(len(mat)):
+        for temp_j in range(len(mat[temp_i])):
+            if mat[temp_i][temp_j] == 1:
+                pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(temp_j * 100, temp_i * 100, 50, 50))
     pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j*100, i*100, 50, 50))
     if i < 9:
         if z == 500:
