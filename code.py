@@ -1,4 +1,8 @@
 import pygame
+from random import seed
+from random import randint
+seed(1)
+
 from pygame.locals import (
     K_UP,
     K_DOWN,
@@ -21,8 +25,8 @@ def placematrix(i,j):
   #insy = round(y//100)
   mat[i][j] = 1
 
-def cube_draw(i, j):
-    pygame.draw.rect(screen, (255, 255, 255), pygame.Rect(j*100+5, i*100+5, 90, 90))
+def cube_draw(i, j, color_1, color_2, color_3):
+    pygame.draw.rect(screen, (color_1, color_2, color_3), pygame.Rect(j*100+5, i*100+5, 90, 90))
 
 def print_matrix(matrix):
   for i in matrix:
@@ -44,6 +48,9 @@ running = True
 x = 200
 y = 100
 z = 0
+color_1 = randint(0, 254)  
+color_2 = randint(0, 254) 
+color_3 = randint(0, 254)
 while running:
     for event in pygame.event.get():
         if event.type == KEYDOWN:
@@ -59,12 +66,17 @@ while running:
                     j = j + 1
     screen.fill((0, 0, 0))
 
+    
     for temp_i in range(len(mat)):
         for temp_j in range(len(mat[temp_i])):
             if mat[temp_i][temp_j] == 1:
-                cube_draw(temp_i, temp_j)
+                if z == 750:
+                    color_1 = randint(0, 254)  
+                    color_2 = randint(0, 254) 
+                    color_3 = randint(0, 254)   
+                cube_draw(temp_i, temp_j, color_1, color_2, color_3)
                 
-    cube_draw(i, j)
+    cube_draw(i, j, 255, 255, 255)
     if i < 9:
         if z == 750:
             if isStop(i,j):
