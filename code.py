@@ -37,7 +37,7 @@ def contgame(i,j):
     print_matrix(mat)
     #shuld summon new block
 
-screen = pygame.display.set_mode([600, 600])
+screen = pygame.display.set_mode([500, 600])
 i = 0
 j = 2
 running = True
