@@ -55,6 +55,13 @@ def contgame(i, j):
     # shuld summon new block
 
 
+def lineclear():
+    for n,p in enumerate(mat):
+        if sum(p)==5:
+            mat.pop(n)
+            mat.insert(0, [0, 0, 0, 0, 0])
+
+
 screen = pygame.display.set_mode([500, 600])
 i = 0
 j = 2
@@ -93,6 +100,7 @@ while running:
     cube_draw(i, j, 255, 255, 255)
     if i < 9:
         if z == 750:
+            lineclear()
             if isStop(i, j):
                 contgame(i, j)
                 # running = False
